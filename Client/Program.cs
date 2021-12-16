@@ -8,6 +8,9 @@ namespace Client
         {
             Concrete.Client client = new Concrete.Client();
             client.ClientPush();
+
+
         }
+
     }
 }
