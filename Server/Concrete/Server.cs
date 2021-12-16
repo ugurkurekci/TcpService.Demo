@@ -28,7 +28,7 @@ namespace Server.Concrete
                     NetworkStream nwStream = client.GetStream();
                     byte[] buffer = new byte[client.ReceiveBufferSize];
                     int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
-                    string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                    string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     Console.WriteLine("Alınan veri : " + dataReceived);
                     client.Close();
                     listener.Stop();

@@ -13,6 +13,7 @@ namespace Client.Concrete
 
         public void ClientPush()
         {
+
             try
             {
                 while (true)
@@ -20,10 +21,9 @@ namespace Client.Concrete
 
                     Console.Write("Girdi:  ");
                     textToSend = Console.ReadLine();
-
                     TcpClient client = new TcpClient(SERVER_IP, PORT_NO);
                     NetworkStream nwStream = client.GetStream();
-                    byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textToSend); 
+                    byte[] bytesToSend = Encoding.UTF8.GetBytes(textToSend);
                     Console.WriteLine("Gönderilen Veri : " + textToSend);
                     nwStream.Write(bytesToSend, 0, bytesToSend.Length);
                     client.Close();
@@ -34,7 +34,6 @@ namespace Client.Concrete
 
                 Console.WriteLine("Hata var");
             }
-
 
         }
     }
