@@ -13,15 +13,14 @@ namespace Server.Concrete
     {
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
-        public void Listener()
+        public static void Listener()
         {
             try
             {
                 while (true)
                 {
-
                     IPAddress localAdd = IPAddress.Parse(SERVER_IP);
-                    TcpListener listener = new TcpListener(localAdd, PORT_NO);
+                    TcpListener listener = new(localAdd, PORT_NO);
                     Console.WriteLine("Dinliyor...");
                     listener.Start();
                     TcpClient client = listener.AcceptTcpClient();
@@ -32,11 +31,7 @@ namespace Server.Concrete
                     Console.WriteLine("Alınan veri : " + dataReceived);
                     client.Close();
                     listener.Stop();
-
-
                 }
-
-
 
             }
             catch (Exception)

@@ -8,7 +8,7 @@ namespace Server
         {
 
             Concrete.Server server = new Concrete.Server();
-            server.Listener();
+            Concrete.Server.Listener();
 
 
         }
